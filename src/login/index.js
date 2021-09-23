@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {colors} from '../utils/colors';
+import styles from './styles';
 
 export default class Login extends Component {
   constructor(props) {
@@ -16,62 +17,39 @@ export default class Login extends Component {
 
   render() {
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={styles.container}>
         <ImageBackground
           source={require('../../assets/background.png')}
           resizeMode={'cover'}
-          style={{
-            flex: 1,
-          }}>
-          <View style={{flex: 1, marginTop: '55%'}}>
-            <View
-              style={{
-                flex: 1,
-                flexDirection: 'column',
-                marginLeft: '10%',
-                marginRight: '10%',
-              }}>
+          style={styles.container}>
+          <View style={styles.mainView}>
+            <View style={styles.content}>
               <View>
-                <Text style={{fontSize: 24, fontWeight: 'bold'}}>Login</Text>
+                <Text style={styles.loginText}>Login</Text>
               </View>
               <View>
-                <Text style={{color: '#c0c0c0'}}>
+                <Text style={{color: colors.darkGray}}>
                   Please sign in to to continue.
                 </Text>
               </View>
 
-              <View style={{marginTop: 10}}>
+              <View style={styles.margin}>
                 <TextInput label={'Email'} mode={'outlined'} />
               </View>
-              <View style={{marginTop: 10}}>
+              <View style={styles.margin}>
                 <TextInput
                   label={'Password'}
                   mode={'outlined'}
                   secureTextEntry={true}
                 />
               </View>
-              <View
-                style={{
-                  marginTop: 10,
-                  flex: 1,
-                  flexDirection: 'row',
-                  justifyContent: 'flex-end',
-                }}>
+              <View style={styles.btnContainer}>
                 <Pressable
-                  style={{
-                    backgroundColor: colors.color_primary,
-                    elevation: 4,
-                    borderRadius: 10,
-                    height: 40,
-                    width: 150,
-                    justifyContent: 'center',
-                  }}
+                  style={styles.btnView}
                   onPress={() => {
                     console.log('Hello');
                   }}>
-                  <Text style={{alignSelf: 'center', color: colors.white}}>
-                    LOGIN
-                  </Text>
+                  <Text style={styles.btnText}>LOGIN</Text>
                 </Pressable>
               </View>
             </View>
