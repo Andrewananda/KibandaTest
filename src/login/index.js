@@ -50,20 +50,27 @@ export default class Login extends Component {
                   secureTextEntry={true}
                 />
               </View>
-              <View style={{marginTop: 10}}>
+              <View
+                style={{
+                  marginTop: 10,
+                  flex: 1,
+                  flexDirection: 'row',
+                  justifyContent: 'flex-end',
+                }}>
                 <Pressable
                   style={{
                     backgroundColor: colors.color_primary,
                     elevation: 4,
                     borderRadius: 10,
                     height: 40,
+                    width: 150,
                     justifyContent: 'center',
                   }}
                   onPress={() => {
                     console.log('Hello');
                   }}>
                   <Text style={{alignSelf: 'center', color: colors.white}}>
-                    SUBMIT
+                    LOGIN
                   </Text>
                 </Pressable>
               </View>
