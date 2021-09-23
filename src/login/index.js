@@ -9,6 +9,7 @@ import {
 import {TextInput} from 'react-native-paper';
 import {colors} from '../utils/colors';
 import styles from './styles';
+import {CommonActions} from '@react-navigation/native';
 
 export default class Login extends Component {
   constructor(props) {
@@ -47,7 +48,12 @@ export default class Login extends Component {
                 <Pressable
                   style={styles.btnView}
                   onPress={() => {
-                    console.log('Hello');
+                    this.props.navigation.dispatch(
+                      CommonActions.reset({
+                        index: 0,
+                        routes: [{name: 'Home'}],
+                      }),
+                    );
                   }}>
                   <Text style={styles.btnText}>LOGIN</Text>
                 </Pressable>
