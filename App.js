@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import SplashScreen from './src/splash';
+import Login from './src/login';
 
+const Stack = createStackNavigator();
 class App extends Component {
   constructor(props) {
     super(props);
@@ -8,9 +12,12 @@ class App extends Component {
 
   render() {
     return (
-      <View style={{justifyContent: 'center', flex: 1}}>
-        <Text style={{fontSize: 25}}>Hello Andrea</Text>
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen options={{headerShown: false}} name={'Splash Screen'} component={SplashScreen} />
+          <Stack.Screen name={'Login'} component={Login} />
+        </Stack.Navigator>
+      </NavigationContainer>
     );
   }
 }
