@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {FlatList, SafeAreaView, Text, View} from 'react-native';
+import {FlatList, Pressable, SafeAreaView, Text, View} from 'react-native';
 import {Card, FAB} from 'react-native-paper';
 import styles from './style';
 import Icon from '../utils/Icon';
@@ -50,7 +50,10 @@ export default class Home extends Component {
               <Text style={styles.latestOrderText}>Latest Order</Text>
             </View>
             <View>
-              <Text style={styles.viewAll}>View all</Text>
+              <Pressable
+                onPress={() => this.props.navigation.navigate('Orders')}>
+                <Text style={styles.viewAll}>View all</Text>
+              </Pressable>
             </View>
           </View>
           <FlatList

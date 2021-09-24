@@ -37,11 +37,7 @@ class App extends Component {
             name={'Client'}
             component={AddClient}
           />
-          <Stack.Screen
-            options={{headerShown: false}}
-            name={'All_orders'}
-            component={Order}
-          />
+          <Stack.Screen name={'Orders'} component={Order} />
         </Stack.Navigator>
       </NavigationContainer>
     );

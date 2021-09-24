@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {FlatList, SafeAreaView, Text, View} from 'react-native';
+import {moderateScale} from 'react-native-size-matters';
 
 export default class Orders extends Component {
   constructor(props) {
@@ -26,7 +27,15 @@ export default class Orders extends Component {
             renderItem={this.renderItem}
             ListEmptyComponent={() => (
               <View style={{justifyContent: 'center', alignContent: 'center'}}>
-                <Text style={{alignSelf: 'center'}}>No orders available</Text>
+                <Text
+                  style={{
+                    alignSelf: 'center',
+                    fontSize: moderateScale(24),
+                    marginTop: '50%',
+                    fontWeight: 'bold',
+                  }}>
+                  No orders available
+                </Text>
               </View>
             )}
           />
