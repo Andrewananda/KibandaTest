@@ -43,9 +43,6 @@ export default class AddClient extends Component {
             <View style={styles.marginTop}>
               <TextInput label={'Client Name'} mode={'outlined'} />
             </View>
-            <View style={{marginTop: 10}}>
-              <TextInput label={'Email'} mode={'outlined'} />
-            </View>
 
             <View style={styles.countryPicker}>
               <CountryPicker
@@ -70,6 +67,9 @@ export default class AddClient extends Component {
                 label={'Phone'}
                 mode={'outlined'}
               />
+            </View>
+            <View style={styles.marginTop}>
+              <TextInput label={'Location'} mode={'outlined'} />
             </View>
             <View style={styles.marginTop}>
               <TextInput label={'Password'} mode={'outlined'} />

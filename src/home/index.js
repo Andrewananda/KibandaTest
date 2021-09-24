@@ -20,13 +20,13 @@ export default class Home extends Component {
             <Card style={styles.cardView}>
               <View style={styles.dashboardCard}>
                 <Text style={styles.totalOrderTxt}>Total Orders</Text>
-                <Text style={styles.countTxt}>100</Text>
+                <Text style={styles.countTxt}>0</Text>
               </View>
             </Card>
             <Card style={styles.cardView}>
               <View style={styles.dashboardCard}>
                 <Text style={styles.latestClientTxt}>Total Clients</Text>
-                <Text style={styles.countTxt}>50</Text>
+                <Text style={styles.countTxt}>0</Text>
               </View>
             </Card>
           </View>

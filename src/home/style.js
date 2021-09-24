@@ -49,7 +49,7 @@ export default {
   },
   countTxt: {
     alignSelf: 'center',
-    fontSize: 18,
+    fontSize: 24,
   },
   totalOrderTxt: {
     alignSelf: 'center',
