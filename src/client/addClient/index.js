@@ -5,6 +5,7 @@ import {colors} from '../../utils/colors';
 import CountryPicker from 'react-native-country-picker-modal';
 import Icon from '../../utils/Icon';
 import {moderateScale} from 'react-native-size-matters';
+import styles from './styles';
 
 export default class AddClient extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class AddClient extends Component {
 
   render() {
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={styles.container}>
         <Appbar style={{backgroundColor: colors.lightGray, elevation: 0}}>
           <Appbar.Action
             icon="close"
@@ -34,24 +35,19 @@ export default class AddClient extends Component {
             onPress={() => this.props.navigation.goBack()}
           />
         </Appbar>
-        <View style={{flex: 1}}>
+        <View style={styles.container}>
           <View style={{justifyContent: 'center'}}>
             <Text style={{alignSelf: 'center', fontSize: 30}}>Add Client</Text>
           </View>
-          <View style={{margin: 10}}>
-            <View style={{marginTop: 10}}>
+          <View style={styles.marginTop}>
+            <View style={styles.marginTop}>
               <TextInput label={'Client Name'} mode={'outlined'} />
             </View>
             <View style={{marginTop: 10}}>
               <TextInput label={'Email'} mode={'outlined'} />
             </View>
 
-            <View
-              style={{
-                flexDirection: 'row',
-                marginTop: 10,
-                justifyContent: 'space-evenly',
-              }}>
+            <View style={styles.countryPicker}>
               <CountryPicker
                 onSelect={this.onCountrySelect}
                 onClose={() => this.setState({countryVisible: false})}
@@ -75,28 +71,14 @@ export default class AddClient extends Component {
                 mode={'outlined'}
               />
             </View>
-            <View style={{marginTop: 10}}>
+            <View style={styles.marginTop}>
               <TextInput label={'Password'} mode={'outlined'} />
             </View>
-            <View style={{marginTop: 10}}>
+            <View style={styles.marginTop}>
               <TextInput label={'Confirm Password'} mode={'outlined'} />
             </View>
-            <Pressable
-              style={{
-                backgroundColor: colors.color_primary,
-                marginTop: moderateScale(10),
-                borderRadius: moderateScale(10),
-                height: moderateScale(40),
-                justifyContent: 'center',
-              }}>
-              <Text
-                style={{
-                  alignSelf: 'center',
-                  fontSize: moderateScale(16),
-                  color: colors.white,
-                }}>
-                SUBMIT
-              </Text>
+            <Pressable style={styles.btnSubmitView}>
+              <Text style={styles.submitTxt}>SUBMIT</Text>
             </Pressable>
           </View>
         </View>
