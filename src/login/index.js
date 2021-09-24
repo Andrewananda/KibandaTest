@@ -10,6 +10,8 @@ import {TextInput} from 'react-native-paper';
 import {colors} from '../utils/colors';
 import styles from './styles';
 import {CommonActions} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Users} from '../data/index';
 
 export default class Login extends Component {
   constructor(props) {
@@ -71,6 +73,17 @@ export default class Login extends Component {
       }
       //login successfully
       // this.redirect('Home');
+      const user = Users.filter(item => {
+        return (
+          this.state.email == item.email && this.state.password == item.password
+        );
+      });
+      console.log('UserData', user);
+      if (user.length > 0) {
+        this.storeUser(user);
+      } else {
+        console.log('UserNotFound', 'error');
+      }
     } else {
       //empty inputs
       this.setState({
@@ -80,6 +93,16 @@ export default class Login extends Component {
         emailErrorMessage: 'Email field is required',
       });
       console.log('empty inputs');
+    }
+  }
+
+  async storeUser(user) {
+    try {
+      let user_data = JSON.stringify(user);
+      await AsyncStorage.setItem(user_data);
+      this.redirect('Home');
+    } catch (e) {
+      console.log('Async storage error');
     }
   }
 
