@@ -17,6 +17,10 @@ export default class Login extends Component {
     this.state = {
       email: '',
       password: '',
+      passwordError: false,
+      emailError: false,
+      emailErrorMessage: '',
+      passwordErrorMessage: '',
     };
   }
 
@@ -37,17 +41,44 @@ export default class Login extends Component {
       if (!this.state.email.includes('@')) {
         //Not valid email
         console.log('not valied email');
+        this.setState({
+          emailError: true,
+          emailErrorMessage: 'Email not valid!',
+        });
         return;
+      } else {
+        this.setState({
+          emailError: false,
+        });
       }
-      if (this.state.password.trim().length < 4) {
-        //password wrong password
-        console.log('password length');
-        return;
+      if (this.state.password.trim() !== '') {
+        if (this.state.password.trim().length < 4) {
+          //password wrong password
+          this.setState({
+            passwordError: true,
+            passwordErrorMessage: 'Password not valid!',
+          });
+        } else {
+          this.setState({
+            passwordError: false,
+          });
+        }
+      } else {
+        this.setState({
+          passwordError: true,
+          passwordErrorMessage: 'Password field is required',
+        });
       }
       //login successfully
-      this.redirect('Home');
+      // this.redirect('Home');
     } else {
       //empty inputs
+      this.setState({
+        emailError: true,
+        passwordError: true,
+        passwordErrorMessage: 'Password field is required',
+        emailErrorMessage: 'Email field is required',
+      });
       console.log('empty inputs');
     }
   }
@@ -85,7 +116,13 @@ export default class Login extends Component {
                   onChangeText={text => this.emailChange(text)}
                   text={this.state.email}
                   mode={'outlined'}
+                  error={this.state.emailError}
                 />
+                {this.state.emailError && (
+                  <Text style={{color: 'red'}}>
+                    {this.state.emailErrorMessage}
+                  </Text>
+                )}
               </View>
               <View style={styles.margin}>
                 <TextInput
@@ -93,7 +130,13 @@ export default class Login extends Component {
                   mode={'outlined'}
                   onChangeText={text => this.handlePasswordChange(text)}
                   secureTextEntry={true}
+                  error={this.state.passwordError}
                 />
+                {this.state.passwordError && (
+                  <Text style={{color: 'red'}}>
+                    {this.state.passwordErrorMessage}
+                  </Text>
+                )}
               </View>
               <View style={styles.btnContainer}>
                 <Pressable
