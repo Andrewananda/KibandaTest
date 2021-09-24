@@ -14,6 +14,51 @@ import {CommonActions} from '@react-navigation/native';
 export default class Login extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      email: '',
+      password: '',
+    };
+  }
+
+  emailChange = text => {
+    if (text.trim() !== '') {
+      this.setState({email: text});
+    }
+  };
+
+  handlePasswordChange = text => {
+    if (text.trim() !== '') {
+      this.setState({password: text});
+    }
+  };
+
+  loginUser() {
+    if (this.state.email.trim() !== '') {
+      if (!this.state.email.includes('@')) {
+        //Not valid email
+        console.log('not valied email');
+        return;
+      }
+      if (this.state.password.trim().length < 4) {
+        //password wrong password
+        console.log('password length');
+        return;
+      }
+      //login successfully
+      this.redirect('Home');
+    } else {
+      //empty inputs
+      console.log('empty inputs');
+    }
+  }
+
+  redirect(page) {
+    this.props.navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{name: page}],
+      }),
+    );
   }
 
   render() {
@@ -35,12 +80,18 @@ export default class Login extends Component {
               </View>
 
               <View style={styles.margin}>
-                <TextInput label={'Email'} mode={'outlined'} />
+                <TextInput
+                  label={'Email'}
+                  onChangeText={text => this.emailChange(text)}
+                  text={this.state.email}
+                  mode={'outlined'}
+                />
               </View>
               <View style={styles.margin}>
                 <TextInput
                   label={'Password'}
                   mode={'outlined'}
+                  onChangeText={text => this.handlePasswordChange(text)}
                   secureTextEntry={true}
                 />
               </View>
@@ -48,12 +99,7 @@ export default class Login extends Component {
                 <Pressable
                   style={styles.btnView}
                   onPress={() => {
-                    this.props.navigation.dispatch(
-                      CommonActions.reset({
-                        index: 0,
-                        routes: [{name: 'Home'}],
-                      }),
-                    );
+                    this.loginUser();
                   }}>
                   <Text style={styles.btnText}>LOGIN</Text>
                 </Pressable>
