@@ -5,6 +5,7 @@ import SplashScreen from './src/splash';
 import Login from './src/login';
 import Home from './src/home';
 import AddClient from './src/client/addClient';
+import Order from './src/orders';
 
 const Stack = createStackNavigator();
 class App extends Component {
@@ -35,6 +36,11 @@ class App extends Component {
             options={{headerShown: false}}
             name={'Client'}
             component={AddClient}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name={'All_orders'}
+            component={Order}
           />
         </Stack.Navigator>
       </NavigationContainer>
