@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from './src/splash';
 import Login from './src/login';
 import Home from './src/home';
+import AddClient from './src/client/addClient';
 
 const Stack = createStackNavigator();
 class App extends Component {
@@ -25,6 +26,11 @@ class App extends Component {
             name={'Login'}
             component={Login}
             options={{headerShown: false}}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name={'Client'}
+            component={AddClient}
           />
         </Stack.Navigator>
       </NavigationContainer>

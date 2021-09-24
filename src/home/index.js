@@ -49,8 +49,9 @@ export default class Home extends Component {
             )}
           />
           <FAB
-            icon="plus"
-            onPress={() => console.log('Pressed')}
+            icon="account-plus"
+            label={'Add Client'}
+            onPress={() => this.props.navigation.navigate('Client')}
             style={styles.fab}
           />
         </View>
