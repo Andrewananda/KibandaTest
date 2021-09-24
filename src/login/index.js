@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+  ActivityIndicator,
   ImageBackground,
   Pressable,
   SafeAreaView,
@@ -23,12 +24,19 @@ export default class Login extends Component {
       emailError: false,
       emailErrorMessage: '',
       passwordErrorMessage: '',
+      isLoading: false,
     };
   }
 
   emailChange = text => {
     if (text.trim() !== '') {
       this.setState({email: text});
+    }
+  };
+
+  handlePress = () => {
+    if (!this.state.isLoading) {
+      this.loginUser();
     }
   };
 
@@ -39,6 +47,7 @@ export default class Login extends Component {
   };
 
   loginUser() {
+    this.setState({isLoading: true});
     if (this.state.email.trim() !== '') {
       if (!this.state.email.includes('@')) {
         //Not valid email
@@ -46,11 +55,13 @@ export default class Login extends Component {
         this.setState({
           emailError: true,
           emailErrorMessage: 'Email not valid!',
+          isLoading: false,
         });
         return;
       } else {
         this.setState({
           emailError: false,
+          isLoading: false,
         });
       }
       if (this.state.password.trim() !== '') {
@@ -59,16 +70,19 @@ export default class Login extends Component {
           this.setState({
             passwordError: true,
             passwordErrorMessage: 'Password not valid!',
+            isLoading: false,
           });
         } else {
           this.setState({
             passwordError: false,
+            isLoading: false,
           });
         }
       } else {
         this.setState({
           passwordError: true,
           passwordErrorMessage: 'Password field is required',
+          isLoading: false,
         });
       }
       //login successfully
@@ -91,6 +105,7 @@ export default class Login extends Component {
         passwordError: true,
         passwordErrorMessage: 'Password field is required',
         emailErrorMessage: 'Email field is required',
+        isLoading: false,
       });
       console.log('empty inputs');
     }
@@ -162,12 +177,10 @@ export default class Login extends Component {
                 )}
               </View>
               <View style={styles.btnContainer}>
-                <Pressable
-                  style={styles.btnView}
-                  onPress={() => {
-                    this.loginUser();
-                  }}>
-                  <Text style={styles.btnText}>LOGIN</Text>
+                <Pressable style={styles.btnView} onPress={this.handlePress}>
+                  <Text style={styles.btnText}>
+                    {this.state.isLoading ? <ActivityIndicator /> : 'LOGIN'}
+                  </Text>
                 </Pressable>
               </View>
             </View>
