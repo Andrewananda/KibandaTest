@@ -56,4 +56,14 @@ export default {
     fontWeight: 'bold',
     fontSize: 20,
   },
+  noOrdersTxt: {
+    alignSelf: 'center',
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  noOrdersView: {
+    alignContent: 'center',
+    justifyContent: 'center',
+    marginTop: '30%',
+  },
 };

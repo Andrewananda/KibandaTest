@@ -39,17 +39,15 @@ export default class Home extends Component {
               <Text style={styles.viewAll}>View all</Text>
             </View>
           </View>
-            <FlatList data={this.state.data} renderItem={(item) => (
-                <View>
-
-                </View>
+          <FlatList
+            data={this.state.data}
+            renderItem={item => <View />}
+            ListEmptyComponent={() => (
+              <View style={styles.noOrdersView}>
+                <Text style={styles.noOrdersTxt}>No Orders Available</Text>
+              </View>
             )}
-              ListEmptyComponent={() => (
-                  <View>
-                      <Text>Orders not available</Text>
-                  </View>
-              )}
-            />
+          />
           <FAB
             icon="plus"
             onPress={() => console.log('Pressed')}
