@@ -39,7 +39,7 @@ export default class AddClient extends Component {
           <View style={{justifyContent: 'center'}}>
             <Text style={{alignSelf: 'center', fontSize: 30}}>Add Client</Text>
           </View>
-          <View style={styles.marginTop}>
+          <View style={styles.margin}>
             <View style={styles.marginTop}>
               <TextInput label={'Client Name'} mode={'outlined'} />
             </View>

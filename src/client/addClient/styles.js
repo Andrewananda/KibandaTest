@@ -7,7 +7,7 @@ export default {
   },
   countryPicker: {
     flexDirection: 'row',
-    marginTop: 10,
+    marginTop: moderateScale(10),
     justifyContent: 'space-evenly',
   },
   btnSubmitView: {
@@ -23,6 +23,9 @@ export default {
     color: colors.white,
   },
   marginTop: {
-    marginTop: 10,
+    marginTop: moderateScale(10),
+  },
+  margin: {
+    margin: moderateScale(10),
   },
 };
