@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {FlatList, SafeAreaView, Text, View} from 'react-native';
 import {Card, FAB} from 'react-native-paper';
 import styles from './style';
+import Icon from '../utils/Icon';
+import {moderateScale} from 'react-native-size-matters';
 
 export default class Home extends Component {
   constructor(props) {
@@ -19,12 +21,24 @@ export default class Home extends Component {
           <View style={styles.content}>
             <Card style={styles.cardView}>
               <View style={styles.dashboardCard}>
+                <Icon
+                  type={'FontAwesome'}
+                  name={'list'}
+                  size={24}
+                  style={{alignSelf: 'center'}}
+                />
                 <Text style={styles.totalOrderTxt}>Total Orders</Text>
                 <Text style={styles.countTxt}>0</Text>
               </View>
             </Card>
             <Card style={styles.cardView}>
               <View style={styles.dashboardCard}>
+                <Icon
+                  type={'FontAwesome'}
+                  name={'users'}
+                  size={24}
+                  style={{alignSelf: 'center'}}
+                />
                 <Text style={styles.latestClientTxt}>Total Clients</Text>
                 <Text style={styles.countTxt}>0</Text>
               </View>

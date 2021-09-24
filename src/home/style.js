@@ -19,7 +19,7 @@ export default {
   },
   dashboardCard: {
     justifyContent: 'center',
-    marginTop: 60,
+    marginTop: 40,
   },
   fab: {
     position: 'absolute',
