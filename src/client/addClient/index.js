@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import {Pressable, SafeAreaView, Text, View} from 'react-native';
 import {Appbar, TextInput} from 'react-native-paper';
 import {colors} from '../../utils/colors';
 import CountryPicker from 'react-native-country-picker-modal';
@@ -75,6 +75,29 @@ export default class AddClient extends Component {
                 mode={'outlined'}
               />
             </View>
+            <View style={{marginTop: 10}}>
+              <TextInput label={'Password'} mode={'outlined'} />
+            </View>
+            <View style={{marginTop: 10}}>
+              <TextInput label={'Confirm Password'} mode={'outlined'} />
+            </View>
+            <Pressable
+              style={{
+                backgroundColor: colors.color_primary,
+                marginTop: moderateScale(10),
+                borderRadius: moderateScale(10),
+                height: moderateScale(40),
+                justifyContent: 'center',
+              }}>
+              <Text
+                style={{
+                  alignSelf: 'center',
+                  fontSize: moderateScale(16),
+                  color: colors.white,
+                }}>
+                SUBMIT
+              </Text>
+            </Pressable>
           </View>
         </View>
       </SafeAreaView>
