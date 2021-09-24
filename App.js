@@ -21,7 +21,11 @@ class App extends Component {
             name={'Screen'}
             component={SplashScreen}
           />
-          <Stack.Screen name={'Home'} component={Home} />
+          <Stack.Screen
+            options={{title: 'Dashboard'}}
+            name={'Home'}
+            component={Home}
+          />
           <Stack.Screen
             name={'Login'}
             component={Login}
