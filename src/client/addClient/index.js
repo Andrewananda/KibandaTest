@@ -125,13 +125,21 @@ class AddClient extends Component {
     }
   }
 
+  componentWillUnmount() {
+    console.log('component unmounted...');
+  }
+
+  navigateBack() {
+    this.props.navigation.goBack();
+  }
+
   storeClient = async data => {
     try {
       let client = JSON.stringify(data);
       console.log('data', client);
       this.props.addClient(data);
-      await AsyncStorage.setItem('client', client);
-      this.props.navigation.goBack();
+      AsyncStorage.setItem('client', client);
+      this.navigateBack();
     } catch (e) {
       console.log('Async Error', e);
     }

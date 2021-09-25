@@ -3,8 +3,11 @@ import {ActivityIndicator, SafeAreaView, Text, View} from 'react-native';
 import {colors} from '../utils/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {CommonActions} from '@react-navigation/native';
+import {bindActionCreators} from 'redux';
+import {addClient} from '../redux/action';
+import {connect} from 'react-redux';
 
-export default class Splash extends Component {
+class Splash extends Component {
   constructor(props) {
     super(props);
   }
@@ -16,7 +19,10 @@ export default class Splash extends Component {
   async loadData() {
     try {
       const user = await AsyncStorage.getItem('user');
+      const clients = await AsyncStorage.getItem('client');
       if (user !== null) {
+        let clientData = JSON.parse(clients);
+        this.props.addClient(clientData);
         this.redirect('Home');
       } else {
         this.redirect('Login');
@@ -61,3 +67,14 @@ export default class Splash extends Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      addClient: addClient,
+    },
+    dispatch,
+  );
+}
+
+export default connect(null, mapDispatchToProps)(Splash);
