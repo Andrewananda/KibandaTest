@@ -5733,6 +5733,11 @@ react-native-country-picker-modal@1.10.0:
     prop-types "15.7.2"
     react-async-hook "3.6.1"
 
+react-native-dialog@^9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-dialog/-/react-native-dialog-9.1.0.tgz#8a40a81304e48f2792e2656223b04bbfecca849d"
+  integrity sha512-/JpNxCXfGPEdYnoDtBrPW0bCIZA13XYhwfQ3vZf4Eth23QX1udlDktdivML6XTlmdgErkuJFqycKXFwGEtAeEQ==
+
 react-native-gesture-handler@^1.10.3:
   version "1.10.3"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.10.3.tgz#942bbf2963bbf49fa79593600ee9d7b5dab3cfc0"

@@ -5,6 +5,7 @@ import {
   Pressable,
   SafeAreaView,
   Text,
+  ToastAndroid,
   View,
 } from 'react-native';
 import {TextInput} from 'react-native-paper';
@@ -13,6 +14,7 @@ import styles from './styles';
 import {CommonActions} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Users} from '../data/index';
+import DialogComponent from '../utils/Dialog';
 
 export default class Login extends Component {
   constructor(props) {
@@ -85,18 +87,16 @@ export default class Login extends Component {
           isLoading: false,
         });
       }
-      //login successfully
-      // this.redirect('Home');
       const user = Users.filter(item => {
         return (
           this.state.email == item.email && this.state.password == item.password
         );
       });
-      console.log('UserData', user);
+
       if (user.length > 0) {
-        this.storeUser(user);
+        this.storeUser(user[0]);
       } else {
-        console.log('UserNotFound', 'error');
+        ToastAndroid.show('User not found', 1000);
       }
     } else {
       //empty inputs
@@ -111,15 +111,16 @@ export default class Login extends Component {
     }
   }
 
-  async storeUser(user) {
+  storeUser = async user => {
     try {
       let user_data = JSON.stringify(user);
-      await AsyncStorage.setItem(user_data);
+      await AsyncStorage.setItem('user', user_data);
+      this.dialog.show('Success!!', 'Login successfully');
       this.redirect('Home');
     } catch (e) {
-      console.log('Async storage error');
+      console.log('Async storage error', e);
     }
-  }
+  };
 
   redirect(page) {
     this.props.navigation.dispatch(
@@ -133,6 +134,7 @@ export default class Login extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+        <DialogComponent ref={ref => (this.dialog = ref)} />
         <ImageBackground
           source={require('../../assets/background.png')}
           resizeMode={'cover'}
