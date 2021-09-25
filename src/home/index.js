@@ -4,8 +4,9 @@ import {Card, FAB} from 'react-native-paper';
 import styles from './style';
 import Icon from '../utils/Icon';
 import {moderateScale} from 'react-native-size-matters';
+import {connect} from 'react-redux';
 
-export default class Home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
 
@@ -40,7 +41,7 @@ export default class Home extends Component {
                   style={{alignSelf: 'center'}}
                 />
                 <Text style={styles.latestClientTxt}>Total Clients</Text>
-                <Text style={styles.countTxt}>0</Text>
+                <Text style={styles.countTxt}>{this.props.clients.length}</Text>
               </View>
             </Card>
           </View>
@@ -76,3 +77,11 @@ export default class Home extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    clients: state.appState.clients,
+  };
+}
+
+export default connect(mapStateToProps, null)(Home);

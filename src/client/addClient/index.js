@@ -128,8 +128,9 @@ class AddClient extends Component {
   storeClient = async data => {
     try {
       let client = JSON.stringify(data);
-      await AsyncStorage.setItem('client', client);
+      console.log('data', client);
       this.props.addClient(data);
+      await AsyncStorage.setItem('client', client);
       this.props.navigation.goBack();
     } catch (e) {
       console.log('Async Error', e);
