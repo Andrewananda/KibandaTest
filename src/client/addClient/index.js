@@ -13,8 +13,11 @@ import Icon from '../../utils/Icon';
 import {moderateScale} from 'react-native-size-matters';
 import styles from './styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {bindActionCreators} from 'redux';
+import {addClient} from '../../redux/action';
+import {connect} from 'react-redux';
 
-export default class AddClient extends Component {
+class AddClient extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -126,6 +129,7 @@ export default class AddClient extends Component {
     try {
       let client = JSON.stringify(data);
       await AsyncStorage.setItem('client', client);
+      this.props.addClient(data);
       this.props.navigation.goBack();
     } catch (e) {
       console.log('Async Error', e);
@@ -234,3 +238,14 @@ export default class AddClient extends Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      addClient: addClient,
+    },
+    dispatch,
+  );
+}
+
+export default connect(null, mapDispatchToProps)(AddClient);
