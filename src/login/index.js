@@ -53,7 +53,6 @@ export default class Login extends Component {
     if (this.state.email.trim() !== '') {
       if (!this.state.email.includes('@')) {
         //Not valid email
-        console.log('not valied email');
         this.setState({
           emailError: true,
           emailErrorMessage: 'Email not valid!',
