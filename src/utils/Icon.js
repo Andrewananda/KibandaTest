@@ -16,17 +16,6 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import {moderateScale} from 'react-native-size-matters';
 
-/**
- * A re usable Icon Component. NativeBase Icons is broken
- * @param type
- * @param name
- * @param color
- * @param size
- * @param style
- * @param onPress
- * @returns {JSX.Element}
- * @constructor
- */
 class Icon extends React.Component {
   constructor(props) {
     super(props);
