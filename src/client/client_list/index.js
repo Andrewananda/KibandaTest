@@ -25,11 +25,23 @@ class Client_list extends Component {
             </View>
             <View style={{flexDirection: 'row', margin: moderateScale(4)}}>
               <Icon type={'FontAwesome'} name={'phone'} size={16} />
-              <Text style={{fontSize: moderateScale(12), marginLeft: moderateScale(6)}}>{item.phone}</Text>
+              <Text
+                style={{
+                  fontSize: moderateScale(12),
+                  marginLeft: moderateScale(6),
+                }}>
+                {item.phone}
+              </Text>
             </View>
             <View style={{flexDirection: 'row', margin: moderateScale(4)}}>
               <Icon type={'EvilIcons'} name={'location'} size={16} />
-              <Text style={{fontSize: moderateScale(12), marginLeft: moderateScale(4)}}>{item.location}</Text>
+              <Text
+                style={{
+                  fontSize: moderateScale(12),
+                  marginLeft: moderateScale(4),
+                }}>
+                {item.location}
+              </Text>
             </View>
           </View>
         </View>

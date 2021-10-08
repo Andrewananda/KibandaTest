@@ -55,10 +55,10 @@ pod install
 <img  width="200" height="400" src="./screenshort/1.png"/>
 </td>
 <td>
-<img  width="200" height="400" src="./screenshort/2.png"/>
+<img  width="200" height="400" src="./screenshort/6.png"/>
 </td>
 <td>
-<img  width="200" height="400" src="./screenshort/3.png"/>
+<img  width="200" height="400" src="./screenshort/7.png"/>
 </td>
 </tr>
 <td>
