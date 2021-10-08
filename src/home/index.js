@@ -5,14 +5,11 @@ import styles from './style';
 import Icon from '../utils/Icon';
 import {moderateScale} from 'react-native-size-matters';
 import {connect} from 'react-redux';
+import Orders from '../orders';
 
 class Home extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      data: [],
-    };
   }
 
   render() {
@@ -31,7 +28,7 @@ class Home extends Component {
                     style={{alignSelf: 'center'}}
                   />
                   <Text style={styles.totalOrderTxt}>Orders</Text>
-                  <Text style={styles.countTxt}>0</Text>
+                  <Text style={styles.countTxt}>3</Text>
                 </View>
               </Pressable>
             </Card>
@@ -65,15 +62,7 @@ class Home extends Component {
               </Pressable>
             </View>
           </View>
-          <FlatList
-            data={this.state.data}
-            renderItem={item => <View />}
-            ListEmptyComponent={() => (
-              <View style={styles.noOrdersView}>
-                <Text style={styles.noOrdersTxt}>No Orders Available</Text>
-              </View>
-            )}
-          />
+          <Orders />
           <FAB
             icon="account-plus"
             label={'Add Client'}

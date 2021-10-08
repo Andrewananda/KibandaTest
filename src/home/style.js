@@ -16,6 +16,7 @@ export default {
     justifyContent: 'center',
     borderRadius: 10,
     elevation: 4,
+    backgroundColor: '#fff'
   },
   dashboardCard: {
     justifyContent: 'center',

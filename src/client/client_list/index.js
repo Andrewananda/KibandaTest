@@ -12,7 +12,7 @@ class Client_list extends Component {
 
   renderItem = ({item}) => {
     return (
-      <Card>
+      <Card style={{backgroundColor: '#fff'}}>
         <View style={{borderWidth: 1, borderColor: '#e7e7e7', width: '100%'}} />
         <View style={{flexDirection: 'row', margin: moderateScale(10)}}>
           <View>
