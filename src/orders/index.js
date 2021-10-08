@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {FlatList, SafeAreaView, Text, View} from 'react-native';
 import {moderateScale} from 'react-native-size-matters';
+import {Card} from 'react-native-paper';
 
 export default class Orders extends Component {
   constructor(props) {
@@ -12,9 +13,9 @@ export default class Orders extends Component {
 
   renderItem(data) {
     return (
-      <View>
-        <Text>Data Available</Text>
-      </View>
+      <Card>
+        <View style={{borderWidth: 1, borderColor: '#e7e7e7', width: '100%'}} />
+      </Card>
     );
   }
 

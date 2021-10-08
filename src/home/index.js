@@ -21,28 +21,36 @@ class Home extends Component {
         <View style={styles.container}>
           <View style={styles.content}>
             <Card style={styles.cardView}>
-              <View style={styles.dashboardCard}>
-                <Icon
-                  type={'FontAwesome'}
-                  name={'list'}
-                  size={24}
-                  style={{alignSelf: 'center'}}
-                />
-                <Text style={styles.totalOrderTxt}>Total Orders</Text>
-                <Text style={styles.countTxt}>0</Text>
-              </View>
+              <Pressable
+                onPress={() => this.props.navigation.navigate('Orders')}>
+                <View style={styles.dashboardCard}>
+                  <Icon
+                    type={'FontAwesome'}
+                    name={'list'}
+                    size={24}
+                    style={{alignSelf: 'center'}}
+                  />
+                  <Text style={styles.totalOrderTxt}>Orders</Text>
+                  <Text style={styles.countTxt}>0</Text>
+                </View>
+              </Pressable>
             </Card>
             <Card style={styles.cardView}>
-              <View style={styles.dashboardCard}>
-                <Icon
-                  type={'FontAwesome'}
-                  name={'users'}
-                  size={24}
-                  style={{alignSelf: 'center'}}
-                />
-                <Text style={styles.latestClientTxt}>Total Clients</Text>
-                <Text style={styles.countTxt}>{this.props.clients.length}</Text>
-              </View>
+              <Pressable
+                onPress={() => this.props.navigation.navigate('Clients')}>
+                <View style={styles.dashboardCard}>
+                  <Icon
+                    type={'FontAwesome'}
+                    name={'users'}
+                    size={24}
+                    style={{alignSelf: 'center'}}
+                  />
+                  <Text style={styles.latestClientTxt}>Clients</Text>
+                  <Text style={styles.countTxt}>
+                    {this.props.clients.length}
+                  </Text>
+                </View>
+              </Pressable>
             </Card>
           </View>
 

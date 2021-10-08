@@ -6,6 +6,7 @@ import Login from './src/login';
 import Home from './src/home';
 import AddClient from './src/client/addClient';
 import Order from './src/orders';
+import Client_list from './src/client/client_list';
 
 const Stack = createStackNavigator();
 class App extends Component {
@@ -38,6 +39,7 @@ class App extends Component {
             component={AddClient}
           />
           <Stack.Screen name={'Orders'} component={Order} />
+          <Stack.Screen name={'Clients'} component={Client_list} />
         </Stack.Navigator>
       </NavigationContainer>
     );

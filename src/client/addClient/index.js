@@ -216,6 +216,7 @@ class AddClient extends Component {
                 onChangeText={this.handlePasswordChange}
                 label={'Password'}
                 mode={'outlined'}
+                secureTextEntry={true}
                 error={this.state.passwordHasError}
               />
               <Text style={{color: 'red'}}>
@@ -227,6 +228,7 @@ class AddClient extends Component {
                 onChangeText={this.handlePasswordConfirm}
                 label={'Confirm Password'}
                 mode={'outlined'}
+                secureTextEntry={true}
                 error={this.state.passwordConfirmHasError}
               />
               <Text style={{color: 'red'}}>
